@@ -32,3 +32,15 @@
 - IBM Cloud Kubernetes Service
 - Oracle Container Engine for Kubernetes
 - DigitalOcean Kubernetes
+
+## Task
+- First ensure all the require ports (80,3000,27017) are available this can be done by deleting the current containers running on the ports. (Push to dockerhub to ensure previous work is not lost)
+- Create a k8 file called nginx_k8_deploy.yml
+- Once created `kubectl creste -f filename.yml` will run the deployment file
+- To check what is running use `kubectl get deploy`
+- In order to display each replica run `kubectl get pods`
+- To be aable to launch the deployment file to be displayed on the browser we need to create a `nginx_services.yml` file run it with `kubectl creste -f filename.yml`
+- `kubectl edit deploy filename.yml` will open up a live editor in order to make live changes to the file
+- In order to delete pods run `kubectl delete pod pod_id` (K8 will redeploy with self-healing)
+- `kubectl edit svc nginx_k8_deploy` to open editing for the service
+- `kubectl delete deploy filename` and `kubectl delete svc filename` are used to get rid of a service and its pods
